@@ -1,10 +1,15 @@
+/*
+This component holds a group of expenses and displays them together.
+*/
+
 import "./ExpensesContainer.css";
+import Card from "./Card"
 import ExpenseItem from "./ExpenseItem"
 
 function ExpensesContainer(props) {
     const expenses = props.expenses
   return (
-    <div className="expenses">
+    <Card className="expenses">
       <ExpenseItem
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -29,7 +34,7 @@ function ExpensesContainer(props) {
         date={expenses[3].date}
         id={expenses[3].id}
       />
-    </div>
+    </Card>
   );
 }
 
