@@ -3,7 +3,7 @@ This component holds a group of expenses and displays them together.
 */
 
 import "./ExpensesContainer.css";
-import Card from "./Card"
+import Card from "../UI/Card"
 import ExpenseItem from "./ExpenseItem"
 
 function ExpensesContainer(props) {
