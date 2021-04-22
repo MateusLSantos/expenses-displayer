@@ -5,7 +5,8 @@ This component holds a group of expenses and displays them together.
 import "./ExpensesContainer.css";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpensesFilter";
-import ExpensesList from "./ExpensesList.js"
+import ExpensesList from "./ExpensesList"
+import ExpensesChart from "./ExpensesChart"
 import { useState } from "react";
 
 function ExpensesContainer(props) {
@@ -26,6 +27,7 @@ function ExpensesContainer(props) {
           selected={enteredFilter}
           onChangeFilter={changeFilterHandler}
         />
+        <ExpensesChart expenses={filteredItems} />
         <ExpensesList items={filteredItems} />
       </Card>
     </div>
