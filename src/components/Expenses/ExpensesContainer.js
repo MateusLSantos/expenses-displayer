@@ -4,35 +4,20 @@ This component holds a group of expenses and displays them together.
 
 import "./ExpensesContainer.css";
 import Card from "../UI/Card";
-import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from "./ExpensesFilter";
+import ExpensesList from "./ExpensesList.js"
 import { useState } from "react";
 
 function ExpensesContainer(props) {
   const [enteredFilter, setEnteredFilter] = useState("2020");
 
   const filteredItems = props.expenses.filter((expense) => {
-    return expense.date.getFullYear() === enteredFilter;
+    return expense.date.getFullYear().toString() === enteredFilter;
   });
 
   const changeFilterHandler = (filterData) => {
     setEnteredFilter(filterData);
   };
-
-  let expensesContent = <p> No expenses found. </p>;
-
-  if (filteredItems.length === 0) {
-    expensesContent = filteredItems.map((expense) => {
-      return (
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          key={expense.id}
-        />
-      );
-    });
-  }
 
   return (
     <div>
@@ -41,7 +26,7 @@ function ExpensesContainer(props) {
           selected={enteredFilter}
           onChangeFilter={changeFilterHandler}
         />
-        {expensesContent}
+        <ExpensesList items={filteredItems} />
       </Card>
     </div>
   );
